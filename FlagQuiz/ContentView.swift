@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-
+    @State private var showingAlert = false
 
     var body: some View {
 //        ZStack {
@@ -34,12 +34,55 @@ struct ContentView: View {
 //        AngularGradient(colors: [.red, .yellow, .green, .blue, .purple, .red], center: .center)
         
         
-        Text("your gradient")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .foregroundStyle(.white)
-            .background(.indigo.gradient)
+//        Text("your gradient")
+//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            .foregroundStyle(.white)
+//            .background(.indigo.gradient)
+//        Button("Delete section", action: executeDelete)
+//            .buttonStyle(.bordered)
+//        
+//        Button("Delete section", role: .destructive, action: executeDelete)
+//            .buttonStyle(.bordered)
+//        
+//        Button("Delete section", action: executeDelete)
+//            .buttonStyle(.borderedProminent)
+//        
+//        Button("Delete section", role: .destructive, action: executeDelete)
+//            .buttonStyle(.borderedProminent)
+//        
+//        
+//        Button {
+//            print("kocak")
+//        } label: {
+//            Text("test")
+//                .padding()
+//                .foregroundStyle(.white)
+//                .background(.red)
+//            
+//        }
+//        
+//        Image("bancas")
         
+        Button("Edit", systemImage: "pencil") {
+            showingAlert = true
+        }
+        .alert("Kocak", isPresented: $showingAlert) {
+            Button("ok") {
+                showingAlert = false
+            }
+            Button("cancel") {
+                showingAlert = false
+            }
+        } message: {
+          Text("kocak kali")
+        }
+    
         
+    }
+    
+    
+    func executeDelete() {
+        print("now deleting....")
     }
 
     
