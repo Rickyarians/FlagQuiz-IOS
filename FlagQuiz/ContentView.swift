@@ -10,8 +10,28 @@ import CoreData
 
 struct ContentView: View {
     @State private var showingAlert = false
-
+    var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"]
+    var correctAnswer = Int.random(in: 0...2)
+    
     var body: some View {
+        ZStack {
+            Color.indigo.ignoresSafeArea()
+            VStack(spacing: 20){
+                Text("tap flag of")
+                    .foregroundStyle(.white)
+                Text(countries[correctAnswer])
+                    .foregroundStyle(.white)
+                
+                ForEach(0..<3) {
+                    number in Button {
+                        
+                    } label: {
+                        Image(countries[number])
+                    }
+                }
+            }
+        }
+        
 //        ZStack {
 //            VStack(spacing: 0) {
 //                Color.red
@@ -63,19 +83,21 @@ struct ContentView: View {
 //        
 //        Image("bancas")
         
-        Button("Edit", systemImage: "pencil") {
-            showingAlert = true
-        }
-        .alert("Kocak", isPresented: $showingAlert) {
-            Button("ok") {
-                showingAlert = false
-            }
-            Button("cancel") {
-                showingAlert = false
-            }
-        } message: {
-          Text("kocak kali")
-        }
+//        Button("Edit", systemImage: "pencil") {
+//            showingAlert = true
+//        }
+//        .alert("Kocak", isPresented: $showingAlert) {
+//            Button("ok") {
+//                showingAlert = false
+//            }
+//            Button("cancel") {
+//                showingAlert = false
+//            }
+//        } message: {
+//          Text("kocak kali")
+//        }
+        
+//        Text("Hello world")
     
         
     }
